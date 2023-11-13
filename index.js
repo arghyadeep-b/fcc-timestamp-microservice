@@ -63,9 +63,9 @@ app.get("/api/:date", function (req, res) {
 
     dateObject = new Date(timestampGMT);
 
-    if (!isNaN(timestamp)) {
+    if (!isNaN(timestampGMT)) {
       res.status(200).json({
-        "unix": timestamp,
+        "unix": timestampGMT,
         "utc": dateObject.toUTCString()
       });
     }
