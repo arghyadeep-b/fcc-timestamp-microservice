@@ -61,11 +61,12 @@ app.get("/api/:date", function (req, res) {
     // converting ist to gmt by adding (+5:30)
     const timestampGMT = timestampIST + (5 * 60 + 30) * 60 * 1000;
 
-    dateObject = new Date(timestampGMT);
+    //! Check
+    dateObject = new Date(timestampIST);
 
     if (!isNaN(timestampGMT)) {
       res.status(200).json({
-        "unix": timestampGMT,
+        "unix": timestampIST,
         "utc": dateObject.toUTCString()
       });
     }
